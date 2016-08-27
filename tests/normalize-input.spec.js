@@ -38,10 +38,17 @@ describe('normalize input', () => {
 
   it('should return same object with basedir added if name but not basedir properties are present', () => {
     let myObj = {
-      name: 'a/b/c/my.txt',
+      name: 'a/b/c/my.txt'
     }
     let result = normalizeInput(myObj)
     expect(result).toBe(myObj)
     expect(result.basedir).toBe(process.cwd())
+  })
+
+  it('should throw error for object with no name and basedir', () => {
+    let testFxn = () => {
+      normalizeInput({})
+    }
+    expect(testFxn).toThrowError(invalidFileErrorText)
   })
 })

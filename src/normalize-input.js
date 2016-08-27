@@ -7,7 +7,7 @@ export function normalizeInput (input) {
     }
   } else if (typeof input === 'object') {
     if (input.name && input.basedir) {
-      return input;
+      return input
     } else if (input.name) {
       return Object.assign(input, {
         basedir: process.cwd()
