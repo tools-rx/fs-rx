@@ -1,6 +1,7 @@
 /* eslint-env jasmine */
 
-import {normalizeInput} from '../src/normalize-input'
+import {join} from 'path'
+import {normalizeInput, fileNameOf} from '../src/normalize-input'
 
 describe('normalize input', () => {
   const invalidFileErrorText = 'Could not identify file name from input.'
@@ -50,5 +51,23 @@ describe('normalize input', () => {
       normalizeInput({})
     }
     expect(testFxn).toThrowError(invalidFileErrorText)
+  })
+})
+
+describe('file name of function', () => {
+  it('should combine basedir and name if not absolute path', () => {
+    let fileName = fileNameOf({
+      basedir: '/tmp/a/b',
+      name: 'c/d/e'
+    })
+    expect(fileName).toEqual(join('/tmp/a/b', 'c/d/e'))
+  })
+
+  it('should only use name if absolute path', () => {
+    let fileName = fileNameOf({
+      basedir: '/tmp/a/b',
+      name: '/tmp/abs-path/c/d/e'
+    })
+    expect(fileName).toEqual('/tmp/abs-path/c/d/e')
   })
 })
