@@ -1,4 +1,6 @@
 
+import {join, isAbsolute} from 'path'
+
 export function normalizeInput (input) {
   if (typeof input === 'string') {
     return {
@@ -16,4 +18,8 @@ export function normalizeInput (input) {
   }
 
   throw new Error('Could not identify file name from input.')
+}
+
+export function fileNameOf (input) {
+  return isAbsolute(input.name) ? input.name : join(input.basedir, input.name)
 }
