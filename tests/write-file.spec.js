@@ -21,7 +21,7 @@ function localFileName (name) {
   return path.join(fileSet.localPath, name)
 }
 
-fdescribe('writeFileRx', () => {
+describe('writeFileRx', () => {
   beforeEach((done) => {
     buildFileSet(fileSet).subscribe(getSubscriber(done))
   })
