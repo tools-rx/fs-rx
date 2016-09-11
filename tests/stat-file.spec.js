@@ -37,6 +37,16 @@ describe('statRx', () => {
       .subscribe(getSubscriber(done))
   })
 
+  it('should get null stats for non-existent file', (done) => {
+    const fileName = localFileName('tmp-missing.txt')
+    statRx(fileName)
+      .do((info) => {
+        expect(typeof info).toEqual('object')
+        expect(info.stats).toBe(null)
+      })
+      .subscribe(getSubscriber(done))
+  })
+
   it('should get stats for directory', (done) => {
     const fileName = localFileName('a')
     statRx(fileName)
@@ -86,6 +96,16 @@ describe('lstatRx', () => {
       .do((info) => {
         expect(typeof info).toEqual('object')
         expect(info.stats.isFile()).toBe(true)
+      })
+      .subscribe(getSubscriber(done))
+  })
+
+  it('should get null stats for non-existent file', (done) => {
+    const fileName = localFileName('tmp-missing.txt')
+    lstatRx(fileName)
+      .do((info) => {
+        expect(typeof info).toEqual('object')
+        expect(info.stats).toBe(null)
       })
       .subscribe(getSubscriber(done))
   })

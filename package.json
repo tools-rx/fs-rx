@@ -26,6 +26,11 @@
     "type": "git",
     "url": "https://github.com/tools-rx/fs-rx.git"
   },
+  "standard": {
+    "ignore": [
+      "docs/"
+    ]
+  },
   "dependencies": {
     "mkdirp": "^0.5.1",
     "rimraf": "^2.5.4",

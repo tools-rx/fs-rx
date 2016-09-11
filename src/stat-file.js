@@ -18,6 +18,12 @@ export function statRx (input) {
     .map((stats) => {
       return Object.assign(normalizedInput, { stats })
     })
+    .catch((err) => {
+      if (err.code === 'ENOENT') {
+        return Observable.of(Object.assign(normalizedInput, { stats: null }))
+      }
+      return Observable.throw(err)
+    })
 }
 
 /**
@@ -32,5 +38,11 @@ export function lstatRx (input) {
   return lstatBound(fileNameOf(normalizedInput))
     .map((stats) => {
       return Object.assign(normalizedInput, { stats })
+    })
+    .catch((err) => {
+      if (err.code === 'ENOENT') {
+        return Observable.of(Object.assign(normalizedInput, { stats: null }))
+      }
+      return Observable.throw(err)
     })
 }
