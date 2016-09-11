@@ -1,0 +1,744 @@
+{
+  "type": "Program",
+  "body": [
+    {
+      "type": "ImportDeclaration",
+      "specifiers": [
+        {
+          "type": "ImportDefaultSpecifier",
+          "local": {
+            "type": "Identifier",
+            "name": "rimraf",
+            "range": [
+              9,
+              15
+            ],
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 7
+              },
+              "end": {
+                "line": 2,
+                "column": 13
+              }
+            }
+          },
+          "range": [
+            9,
+            15
+          ],
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 7
+            },
+            "end": {
+              "line": 2,
+              "column": 13
+            }
+          }
+        }
+      ],
+      "source": {
+        "type": "Literal",
+        "value": "rimraf",
+        "raw": "'rimraf'",
+        "range": [
+          21,
+          29
+        ],
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 19
+          },
+          "end": {
+            "line": 2,
+            "column": 27
+          }
+        }
+      },
+      "range": [
+        2,
+        31
+      ],
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 0
+        },
+        "end": {
+          "line": 3,
+          "column": 0
+        }
+      }
+    },
+    {
+      "type": "ImportDeclaration",
+      "specifiers": [
+        {
+          "type": "ImportSpecifier",
+          "local": {
+            "type": "Identifier",
+            "name": "Observable",
+            "range": [
+              39,
+              49
+            ],
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 8
+              },
+              "end": {
+                "line": 3,
+                "column": 18
+              }
+            }
+          },
+          "imported": {
+            "type": "Identifier",
+            "name": "Observable",
+            "range": [
+              39,
+              49
+            ],
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 8
+              },
+              "end": {
+                "line": 3,
+                "column": 18
+              }
+            }
+          },
+          "range": [
+            39,
+            49
+          ],
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 8
+            },
+            "end": {
+              "line": 3,
+              "column": 18
+            }
+          }
+        }
+      ],
+      "source": {
+        "type": "Literal",
+        "value": "rxjs",
+        "raw": "'rxjs'",
+        "range": [
+          56,
+          62
+        ],
+        "loc": {
+          "start": {
+            "line": 3,
+            "column": 25
+          },
+          "end": {
+            "line": 3,
+            "column": 31
+          }
+        }
+      },
+      "range": [
+        31,
+        66
+      ],
+      "loc": {
+        "start": {
+          "line": 3,
+          "column": 0
+        },
+        "end": {
+          "line": 5,
+          "column": 0
+        }
+      }
+    },
+    {
+      "type": "VariableDeclaration",
+      "declarations": [
+        {
+          "type": "VariableDeclarator",
+          "id": {
+            "type": "Identifier",
+            "name": "rimrafBound",
+            "range": [
+              72,
+              83
+            ],
+            "loc": {
+              "start": {
+                "line": 5,
+                "column": 6
+              },
+              "end": {
+                "line": 5,
+                "column": 17
+              }
+            }
+          },
+          "init": {
+            "type": "CallExpression",
+            "callee": {
+              "type": "MemberExpression",
+              "computed": false,
+              "object": {
+                "type": "Identifier",
+                "name": "Observable",
+                "range": [
+                  86,
+                  96
+                ],
+                "loc": {
+                  "start": {
+                    "line": 5,
+                    "column": 20
+                  },
+                  "end": {
+                    "line": 5,
+                    "column": 30
+                  }
+                }
+              },
+              "property": {
+                "type": "Identifier",
+                "name": "bindNodeCallback",
+                "range": [
+                  97,
+                  113
+                ],
+                "loc": {
+                  "start": {
+                    "line": 5,
+                    "column": 31
+                  },
+                  "end": {
+                    "line": 5,
+                    "column": 47
+                  }
+                }
+              },
+              "range": [
+                86,
+                113
+              ],
+              "loc": {
+                "start": {
+                  "line": 5,
+                  "column": 20
+                },
+                "end": {
+                  "line": 5,
+                  "column": 47
+                }
+              }
+            },
+            "arguments": [
+              {
+                "type": "Identifier",
+                "name": "rimraf",
+                "range": [
+                  114,
+                  120
+                ],
+                "loc": {
+                  "start": {
+                    "line": 5,
+                    "column": 48
+                  },
+                  "end": {
+                    "line": 5,
+                    "column": 54
+                  }
+                }
+              }
+            ],
+            "range": [
+              86,
+              121
+            ],
+            "loc": {
+              "start": {
+                "line": 5,
+                "column": 20
+              },
+              "end": {
+                "line": 5,
+                "column": 55
+              }
+            }
+          },
+          "range": [
+            72,
+            121
+          ],
+          "loc": {
+            "start": {
+              "line": 5,
+              "column": 6
+            },
+            "end": {
+              "line": 5,
+              "column": 55
+            }
+          },
+          "trailingComments": [
+            {
+              "type": "Block",
+              "value": "*\r\n * Use rimraf to delete all files and directories.\r\n * @param {string} input The file or directory name to delete.\r\n * @param {object} options Options (not required) that are passed to the rimraf function.\r\n * @return {Observable<object>} An observable containing an empty object.\r\n ",
+              "range": [
+                125,
+                415
+              ],
+              "loc": {
+                "start": {
+                  "line": 7,
+                  "column": 0
+                },
+                "end": {
+                  "line": 12,
+                  "column": 3
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "kind": "const",
+      "range": [
+        66,
+        417
+      ],
+      "loc": {
+        "start": {
+          "line": 5,
+          "column": 0
+        },
+        "end": {
+          "line": 13,
+          "column": 0
+        }
+      }
+    },
+    {
+      "type": "ExportNamedDeclaration",
+      "declaration": {
+        "type": "FunctionDeclaration",
+        "id": {
+          "type": "Identifier",
+          "name": "rimrafRx",
+          "range": [
+            433,
+            441
+          ],
+          "loc": {
+            "start": {
+              "line": 13,
+              "column": 16
+            },
+            "end": {
+              "line": 13,
+              "column": 24
+            }
+          }
+        },
+        "params": [
+          {
+            "type": "Identifier",
+            "name": "input",
+            "range": [
+              443,
+              448
+            ],
+            "loc": {
+              "start": {
+                "line": 13,
+                "column": 26
+              },
+              "end": {
+                "line": 13,
+                "column": 31
+              }
+            }
+          },
+          {
+            "type": "Identifier",
+            "name": "options",
+            "range": [
+              450,
+              457
+            ],
+            "loc": {
+              "start": {
+                "line": 13,
+                "column": 33
+              },
+              "end": {
+                "line": 13,
+                "column": 40
+              }
+            }
+          }
+        ],
+        "body": {
+          "type": "BlockStatement",
+          "body": [
+            {
+              "type": "ReturnStatement",
+              "argument": {
+                "type": "CallExpression",
+                "callee": {
+                  "type": "MemberExpression",
+                  "computed": false,
+                  "object": {
+                    "type": "CallExpression",
+                    "callee": {
+                      "type": "Identifier",
+                      "name": "rimrafBound",
+                      "range": [
+                        471,
+                        482
+                      ],
+                      "loc": {
+                        "start": {
+                          "line": 14,
+                          "column": 9
+                        },
+                        "end": {
+                          "line": 14,
+                          "column": 20
+                        }
+                      }
+                    },
+                    "arguments": [
+                      {
+                        "type": "Identifier",
+                        "name": "input",
+                        "range": [
+                          483,
+                          488
+                        ],
+                        "loc": {
+                          "start": {
+                            "line": 14,
+                            "column": 21
+                          },
+                          "end": {
+                            "line": 14,
+                            "column": 26
+                          }
+                        }
+                      },
+                      {
+                        "type": "LogicalExpression",
+                        "operator": "||",
+                        "left": {
+                          "type": "Identifier",
+                          "name": "options",
+                          "range": [
+                            490,
+                            497
+                          ],
+                          "loc": {
+                            "start": {
+                              "line": 14,
+                              "column": 28
+                            },
+                            "end": {
+                              "line": 14,
+                              "column": 35
+                            }
+                          }
+                        },
+                        "right": {
+                          "type": "ObjectExpression",
+                          "properties": [],
+                          "range": [
+                            501,
+                            503
+                          ],
+                          "loc": {
+                            "start": {
+                              "line": 14,
+                              "column": 39
+                            },
+                            "end": {
+                              "line": 14,
+                              "column": 41
+                            }
+                          }
+                        },
+                        "range": [
+                          490,
+                          503
+                        ],
+                        "loc": {
+                          "start": {
+                            "line": 14,
+                            "column": 28
+                          },
+                          "end": {
+                            "line": 14,
+                            "column": 41
+                          }
+                        }
+                      }
+                    ],
+                    "range": [
+                      471,
+                      504
+                    ],
+                    "loc": {
+                      "start": {
+                        "line": 14,
+                        "column": 9
+                      },
+                      "end": {
+                        "line": 14,
+                        "column": 42
+                      }
+                    }
+                  },
+                  "property": {
+                    "type": "Identifier",
+                    "name": "map",
+                    "range": [
+                      511,
+                      514
+                    ],
+                    "loc": {
+                      "start": {
+                        "line": 15,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 15,
+                        "column": 8
+                      }
+                    }
+                  },
+                  "range": [
+                    471,
+                    514
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 14,
+                      "column": 9
+                    },
+                    "end": {
+                      "line": 15,
+                      "column": 8
+                    }
+                  }
+                },
+                "arguments": [
+                  {
+                    "type": "ArrowFunctionExpression",
+                    "id": null,
+                    "params": [],
+                    "body": {
+                      "type": "ObjectExpression",
+                      "properties": [],
+                      "range": [
+                        522,
+                        524
+                      ],
+                      "loc": {
+                        "start": {
+                          "line": 15,
+                          "column": 16
+                        },
+                        "end": {
+                          "line": 15,
+                          "column": 18
+                        }
+                      }
+                    },
+                    "generator": false,
+                    "expression": true,
+                    "range": [
+                      515,
+                      525
+                    ],
+                    "loc": {
+                      "start": {
+                        "line": 15,
+                        "column": 9
+                      },
+                      "end": {
+                        "line": 15,
+                        "column": 19
+                      }
+                    }
+                  }
+                ],
+                "range": [
+                  471,
+                  526
+                ],
+                "loc": {
+                  "start": {
+                    "line": 14,
+                    "column": 9
+                  },
+                  "end": {
+                    "line": 15,
+                    "column": 20
+                  }
+                }
+              },
+              "range": [
+                464,
+                528
+              ],
+              "loc": {
+                "start": {
+                  "line": 14,
+                  "column": 2
+                },
+                "end": {
+                  "line": 16,
+                  "column": 0
+                }
+              }
+            }
+          ],
+          "range": [
+            459,
+            529
+          ],
+          "loc": {
+            "start": {
+              "line": 13,
+              "column": 42
+            },
+            "end": {
+              "line": 16,
+              "column": 1
+            }
+          }
+        },
+        "generator": false,
+        "expression": false,
+        "range": [
+          424,
+          529
+        ],
+        "loc": {
+          "start": {
+            "line": 13,
+            "column": 7
+          },
+          "end": {
+            "line": 16,
+            "column": 1
+          }
+        },
+        "leadingComments": [
+          {
+            "type": "Block",
+            "value": "*\r\n * Use rimraf to delete all files and directories.\r\n * @param {string} input The file or directory name to delete.\r\n * @param {object} options Options (not required) that are passed to the rimraf function.\r\n * @return {Observable<object>} An observable containing an empty object.\r\n ",
+            "range": [
+              125,
+              415
+            ],
+            "loc": {
+              "start": {
+                "line": 7,
+                "column": 0
+              },
+              "end": {
+                "line": 12,
+                "column": 3
+              }
+            }
+          }
+        ],
+        "trailingComments": []
+      },
+      "specifiers": [],
+      "source": null,
+      "range": [
+        417,
+        529
+      ],
+      "loc": {
+        "start": {
+          "line": 13,
+          "column": 0
+        },
+        "end": {
+          "line": 16,
+          "column": 1
+        }
+      },
+      "leadingComments": [
+        {
+          "type": "Block",
+          "value": "*\r\n * Use rimraf to delete all files and directories.\r\n * @param {string} input The file or directory name to delete.\r\n * @param {object} options Options (not required) that are passed to the rimraf function.\r\n * @return {Observable<object>} An observable containing an empty object.\r\n ",
+          "range": [
+            125,
+            415
+          ],
+          "loc": {
+            "start": {
+              "line": 7,
+              "column": 0
+            },
+            "end": {
+              "line": 12,
+              "column": 3
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "sourceType": "module",
+  "range": [
+    2,
+    529
+  ],
+  "loc": {
+    "start": {
+      "line": 2,
+      "column": 0
+    },
+    "end": {
+      "line": 16,
+      "column": 1
+    }
+  },
+  "comments": [
+    {
+      "type": "Block",
+      "value": "*\r\n * Use rimraf to delete all files and directories.\r\n * @param {string} input The file or directory name to delete.\r\n * @param {object} options Options (not required) that are passed to the rimraf function.\r\n * @return {Observable<object>} An observable containing an empty object.\r\n ",
+      "range": [
+        125,
+        415
+      ],
+      "loc": {
+        "start": {
+          "line": 7,
+          "column": 0
+        },
+        "end": {
+          "line": 12,
+          "column": 3
+        }
+      }
+    }
+  ]
+}

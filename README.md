@@ -11,6 +11,8 @@
 
 Observable wrappers around NodeJS file system (`fs`) functions.
 
+[https://tools-rx.github.io/fs-rx/](https://tools-rx.github.io/fs-rx/)
+
 ## Usage
 
 Install from NPM

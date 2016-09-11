@@ -1,0 +1,1053 @@
+{
+  "type": "Program",
+  "body": [
+    {
+      "type": "ImportDeclaration",
+      "specifiers": [
+        {
+          "type": "ImportSpecifier",
+          "local": {
+            "type": "Identifier",
+            "name": "writeFile",
+            "range": [
+              10,
+              19
+            ],
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 8
+              },
+              "end": {
+                "line": 2,
+                "column": 17
+              }
+            }
+          },
+          "imported": {
+            "type": "Identifier",
+            "name": "writeFile",
+            "range": [
+              10,
+              19
+            ],
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 8
+              },
+              "end": {
+                "line": 2,
+                "column": 17
+              }
+            }
+          },
+          "range": [
+            10,
+            19
+          ],
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 8
+            },
+            "end": {
+              "line": 2,
+              "column": 17
+            }
+          }
+        }
+      ],
+      "source": {
+        "type": "Literal",
+        "value": "fs",
+        "raw": "'fs'",
+        "range": [
+          26,
+          30
+        ],
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 24
+          },
+          "end": {
+            "line": 2,
+            "column": 28
+          }
+        }
+      },
+      "range": [
+        2,
+        32
+      ],
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 0
+        },
+        "end": {
+          "line": 3,
+          "column": 0
+        }
+      }
+    },
+    {
+      "type": "ImportDeclaration",
+      "specifiers": [
+        {
+          "type": "ImportSpecifier",
+          "local": {
+            "type": "Identifier",
+            "name": "Observable",
+            "range": [
+              40,
+              50
+            ],
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 8
+              },
+              "end": {
+                "line": 3,
+                "column": 18
+              }
+            }
+          },
+          "imported": {
+            "type": "Identifier",
+            "name": "Observable",
+            "range": [
+              40,
+              50
+            ],
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 8
+              },
+              "end": {
+                "line": 3,
+                "column": 18
+              }
+            }
+          },
+          "range": [
+            40,
+            50
+          ],
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 8
+            },
+            "end": {
+              "line": 3,
+              "column": 18
+            }
+          }
+        }
+      ],
+      "source": {
+        "type": "Literal",
+        "value": "rxjs",
+        "raw": "'rxjs'",
+        "range": [
+          57,
+          63
+        ],
+        "loc": {
+          "start": {
+            "line": 3,
+            "column": 25
+          },
+          "end": {
+            "line": 3,
+            "column": 31
+          }
+        }
+      },
+      "range": [
+        32,
+        65
+      ],
+      "loc": {
+        "start": {
+          "line": 3,
+          "column": 0
+        },
+        "end": {
+          "line": 4,
+          "column": 0
+        }
+      }
+    },
+    {
+      "type": "ImportDeclaration",
+      "specifiers": [
+        {
+          "type": "ImportSpecifier",
+          "local": {
+            "type": "Identifier",
+            "name": "normalizeInput",
+            "range": [
+              73,
+              87
+            ],
+            "loc": {
+              "start": {
+                "line": 4,
+                "column": 8
+              },
+              "end": {
+                "line": 4,
+                "column": 22
+              }
+            }
+          },
+          "imported": {
+            "type": "Identifier",
+            "name": "normalizeInput",
+            "range": [
+              73,
+              87
+            ],
+            "loc": {
+              "start": {
+                "line": 4,
+                "column": 8
+              },
+              "end": {
+                "line": 4,
+                "column": 22
+              }
+            }
+          },
+          "range": [
+            73,
+            87
+          ],
+          "loc": {
+            "start": {
+              "line": 4,
+              "column": 8
+            },
+            "end": {
+              "line": 4,
+              "column": 22
+            }
+          }
+        },
+        {
+          "type": "ImportSpecifier",
+          "local": {
+            "type": "Identifier",
+            "name": "fileNameOf",
+            "range": [
+              89,
+              99
+            ],
+            "loc": {
+              "start": {
+                "line": 4,
+                "column": 24
+              },
+              "end": {
+                "line": 4,
+                "column": 34
+              }
+            }
+          },
+          "imported": {
+            "type": "Identifier",
+            "name": "fileNameOf",
+            "range": [
+              89,
+              99
+            ],
+            "loc": {
+              "start": {
+                "line": 4,
+                "column": 24
+              },
+              "end": {
+                "line": 4,
+                "column": 34
+              }
+            }
+          },
+          "range": [
+            89,
+            99
+          ],
+          "loc": {
+            "start": {
+              "line": 4,
+              "column": 24
+            },
+            "end": {
+              "line": 4,
+              "column": 34
+            }
+          }
+        }
+      ],
+      "source": {
+        "type": "Literal",
+        "value": "./normalize-input",
+        "raw": "'./normalize-input'",
+        "range": [
+          106,
+          125
+        ],
+        "loc": {
+          "start": {
+            "line": 4,
+            "column": 41
+          },
+          "end": {
+            "line": 4,
+            "column": 60
+          }
+        }
+      },
+      "range": [
+        65,
+        129
+      ],
+      "loc": {
+        "start": {
+          "line": 4,
+          "column": 0
+        },
+        "end": {
+          "line": 6,
+          "column": 0
+        }
+      }
+    },
+    {
+      "type": "VariableDeclaration",
+      "declarations": [
+        {
+          "type": "VariableDeclarator",
+          "id": {
+            "type": "Identifier",
+            "name": "writeFileBound",
+            "range": [
+              135,
+              149
+            ],
+            "loc": {
+              "start": {
+                "line": 6,
+                "column": 6
+              },
+              "end": {
+                "line": 6,
+                "column": 20
+              }
+            }
+          },
+          "init": {
+            "type": "CallExpression",
+            "callee": {
+              "type": "MemberExpression",
+              "computed": false,
+              "object": {
+                "type": "Identifier",
+                "name": "Observable",
+                "range": [
+                  152,
+                  162
+                ],
+                "loc": {
+                  "start": {
+                    "line": 6,
+                    "column": 23
+                  },
+                  "end": {
+                    "line": 6,
+                    "column": 33
+                  }
+                }
+              },
+              "property": {
+                "type": "Identifier",
+                "name": "bindNodeCallback",
+                "range": [
+                  163,
+                  179
+                ],
+                "loc": {
+                  "start": {
+                    "line": 6,
+                    "column": 34
+                  },
+                  "end": {
+                    "line": 6,
+                    "column": 50
+                  }
+                }
+              },
+              "range": [
+                152,
+                179
+              ],
+              "loc": {
+                "start": {
+                  "line": 6,
+                  "column": 23
+                },
+                "end": {
+                  "line": 6,
+                  "column": 50
+                }
+              }
+            },
+            "arguments": [
+              {
+                "type": "Identifier",
+                "name": "writeFile",
+                "range": [
+                  180,
+                  189
+                ],
+                "loc": {
+                  "start": {
+                    "line": 6,
+                    "column": 51
+                  },
+                  "end": {
+                    "line": 6,
+                    "column": 60
+                  }
+                }
+              }
+            ],
+            "range": [
+              152,
+              190
+            ],
+            "loc": {
+              "start": {
+                "line": 6,
+                "column": 23
+              },
+              "end": {
+                "line": 6,
+                "column": 61
+              }
+            }
+          },
+          "range": [
+            135,
+            190
+          ],
+          "loc": {
+            "start": {
+              "line": 6,
+              "column": 6
+            },
+            "end": {
+              "line": 6,
+              "column": 61
+            }
+          },
+          "trailingComments": [
+            {
+              "type": "Block",
+              "value": "*\r\n * Write the contents of a file.\r\n * @param {object | string} input The file name to write.\r\n * @param {string | Buffer} content Data to write.\r\n * @param {string} options Options (not required) that are passed to the writeFile function.\r\n * @return {Observable<object>} An observable containing the file name object.\r\n ",
+              "range": [
+                194,
+                521
+              ],
+              "loc": {
+                "start": {
+                  "line": 8,
+                  "column": 0
+                },
+                "end": {
+                  "line": 14,
+                  "column": 3
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "kind": "const",
+      "range": [
+        129,
+        523
+      ],
+      "loc": {
+        "start": {
+          "line": 6,
+          "column": 0
+        },
+        "end": {
+          "line": 15,
+          "column": 0
+        }
+      }
+    },
+    {
+      "type": "ExportNamedDeclaration",
+      "declaration": {
+        "type": "FunctionDeclaration",
+        "id": {
+          "type": "Identifier",
+          "name": "writeFileRx",
+          "range": [
+            539,
+            550
+          ],
+          "loc": {
+            "start": {
+              "line": 15,
+              "column": 16
+            },
+            "end": {
+              "line": 15,
+              "column": 27
+            }
+          }
+        },
+        "params": [
+          {
+            "type": "Identifier",
+            "name": "input",
+            "range": [
+              552,
+              557
+            ],
+            "loc": {
+              "start": {
+                "line": 15,
+                "column": 29
+              },
+              "end": {
+                "line": 15,
+                "column": 34
+              }
+            }
+          },
+          {
+            "type": "Identifier",
+            "name": "content",
+            "range": [
+              559,
+              566
+            ],
+            "loc": {
+              "start": {
+                "line": 15,
+                "column": 36
+              },
+              "end": {
+                "line": 15,
+                "column": 43
+              }
+            }
+          },
+          {
+            "type": "Identifier",
+            "name": "options",
+            "range": [
+              568,
+              575
+            ],
+            "loc": {
+              "start": {
+                "line": 15,
+                "column": 45
+              },
+              "end": {
+                "line": 15,
+                "column": 52
+              }
+            }
+          }
+        ],
+        "body": {
+          "type": "BlockStatement",
+          "body": [
+            {
+              "type": "VariableDeclaration",
+              "declarations": [
+                {
+                  "type": "VariableDeclarator",
+                  "id": {
+                    "type": "Identifier",
+                    "name": "normalizedInput",
+                    "range": [
+                      586,
+                      601
+                    ],
+                    "loc": {
+                      "start": {
+                        "line": 16,
+                        "column": 6
+                      },
+                      "end": {
+                        "line": 16,
+                        "column": 21
+                      }
+                    }
+                  },
+                  "init": {
+                    "type": "CallExpression",
+                    "callee": {
+                      "type": "Identifier",
+                      "name": "normalizeInput",
+                      "range": [
+                        604,
+                        618
+                      ],
+                      "loc": {
+                        "start": {
+                          "line": 16,
+                          "column": 24
+                        },
+                        "end": {
+                          "line": 16,
+                          "column": 38
+                        }
+                      }
+                    },
+                    "arguments": [
+                      {
+                        "type": "Identifier",
+                        "name": "input",
+                        "range": [
+                          619,
+                          624
+                        ],
+                        "loc": {
+                          "start": {
+                            "line": 16,
+                            "column": 39
+                          },
+                          "end": {
+                            "line": 16,
+                            "column": 44
+                          }
+                        }
+                      }
+                    ],
+                    "range": [
+                      604,
+                      625
+                    ],
+                    "loc": {
+                      "start": {
+                        "line": 16,
+                        "column": 24
+                      },
+                      "end": {
+                        "line": 16,
+                        "column": 45
+                      }
+                    }
+                  },
+                  "range": [
+                    586,
+                    625
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 16,
+                      "column": 6
+                    },
+                    "end": {
+                      "line": 16,
+                      "column": 45
+                    }
+                  }
+                }
+              ],
+              "kind": "let",
+              "range": [
+                582,
+                629
+              ],
+              "loc": {
+                "start": {
+                  "line": 16,
+                  "column": 2
+                },
+                "end": {
+                  "line": 17,
+                  "column": 2
+                }
+              }
+            },
+            {
+              "type": "ReturnStatement",
+              "argument": {
+                "type": "CallExpression",
+                "callee": {
+                  "type": "MemberExpression",
+                  "computed": false,
+                  "object": {
+                    "type": "CallExpression",
+                    "callee": {
+                      "type": "Identifier",
+                      "name": "writeFileBound",
+                      "range": [
+                        636,
+                        650
+                      ],
+                      "loc": {
+                        "start": {
+                          "line": 17,
+                          "column": 9
+                        },
+                        "end": {
+                          "line": 17,
+                          "column": 23
+                        }
+                      }
+                    },
+                    "arguments": [
+                      {
+                        "type": "CallExpression",
+                        "callee": {
+                          "type": "Identifier",
+                          "name": "fileNameOf",
+                          "range": [
+                            651,
+                            661
+                          ],
+                          "loc": {
+                            "start": {
+                              "line": 17,
+                              "column": 24
+                            },
+                            "end": {
+                              "line": 17,
+                              "column": 34
+                            }
+                          }
+                        },
+                        "arguments": [
+                          {
+                            "type": "Identifier",
+                            "name": "normalizedInput",
+                            "range": [
+                              662,
+                              677
+                            ],
+                            "loc": {
+                              "start": {
+                                "line": 17,
+                                "column": 35
+                              },
+                              "end": {
+                                "line": 17,
+                                "column": 50
+                              }
+                            }
+                          }
+                        ],
+                        "range": [
+                          651,
+                          678
+                        ],
+                        "loc": {
+                          "start": {
+                            "line": 17,
+                            "column": 24
+                          },
+                          "end": {
+                            "line": 17,
+                            "column": 51
+                          }
+                        }
+                      },
+                      {
+                        "type": "Identifier",
+                        "name": "content",
+                        "range": [
+                          680,
+                          687
+                        ],
+                        "loc": {
+                          "start": {
+                            "line": 17,
+                            "column": 53
+                          },
+                          "end": {
+                            "line": 17,
+                            "column": 60
+                          }
+                        }
+                      },
+                      {
+                        "type": "Identifier",
+                        "name": "options",
+                        "range": [
+                          689,
+                          696
+                        ],
+                        "loc": {
+                          "start": {
+                            "line": 17,
+                            "column": 62
+                          },
+                          "end": {
+                            "line": 17,
+                            "column": 69
+                          }
+                        }
+                      }
+                    ],
+                    "range": [
+                      636,
+                      697
+                    ],
+                    "loc": {
+                      "start": {
+                        "line": 17,
+                        "column": 9
+                      },
+                      "end": {
+                        "line": 17,
+                        "column": 70
+                      }
+                    }
+                  },
+                  "property": {
+                    "type": "Identifier",
+                    "name": "map",
+                    "range": [
+                      704,
+                      707
+                    ],
+                    "loc": {
+                      "start": {
+                        "line": 18,
+                        "column": 5
+                      },
+                      "end": {
+                        "line": 18,
+                        "column": 8
+                      }
+                    }
+                  },
+                  "range": [
+                    636,
+                    707
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 17,
+                      "column": 9
+                    },
+                    "end": {
+                      "line": 18,
+                      "column": 8
+                    }
+                  }
+                },
+                "arguments": [
+                  {
+                    "type": "ArrowFunctionExpression",
+                    "id": null,
+                    "params": [],
+                    "body": {
+                      "type": "Identifier",
+                      "name": "normalizedInput",
+                      "range": [
+                        714,
+                        729
+                      ],
+                      "loc": {
+                        "start": {
+                          "line": 18,
+                          "column": 15
+                        },
+                        "end": {
+                          "line": 18,
+                          "column": 30
+                        }
+                      }
+                    },
+                    "generator": false,
+                    "expression": true,
+                    "range": [
+                      708,
+                      729
+                    ],
+                    "loc": {
+                      "start": {
+                        "line": 18,
+                        "column": 9
+                      },
+                      "end": {
+                        "line": 18,
+                        "column": 30
+                      }
+                    }
+                  }
+                ],
+                "range": [
+                  636,
+                  730
+                ],
+                "loc": {
+                  "start": {
+                    "line": 17,
+                    "column": 9
+                  },
+                  "end": {
+                    "line": 18,
+                    "column": 31
+                  }
+                }
+              },
+              "range": [
+                629,
+                732
+              ],
+              "loc": {
+                "start": {
+                  "line": 17,
+                  "column": 2
+                },
+                "end": {
+                  "line": 19,
+                  "column": 0
+                }
+              }
+            }
+          ],
+          "range": [
+            577,
+            733
+          ],
+          "loc": {
+            "start": {
+              "line": 15,
+              "column": 54
+            },
+            "end": {
+              "line": 19,
+              "column": 1
+            }
+          }
+        },
+        "generator": false,
+        "expression": false,
+        "range": [
+          530,
+          733
+        ],
+        "loc": {
+          "start": {
+            "line": 15,
+            "column": 7
+          },
+          "end": {
+            "line": 19,
+            "column": 1
+          }
+        },
+        "leadingComments": [
+          {
+            "type": "Block",
+            "value": "*\r\n * Write the contents of a file.\r\n * @param {object | string} input The file name to write.\r\n * @param {string | Buffer} content Data to write.\r\n * @param {string} options Options (not required) that are passed to the writeFile function.\r\n * @return {Observable<object>} An observable containing the file name object.\r\n ",
+            "range": [
+              194,
+              521
+            ],
+            "loc": {
+              "start": {
+                "line": 8,
+                "column": 0
+              },
+              "end": {
+                "line": 14,
+                "column": 3
+              }
+            }
+          }
+        ],
+        "trailingComments": []
+      },
+      "specifiers": [],
+      "source": null,
+      "range": [
+        523,
+        733
+      ],
+      "loc": {
+        "start": {
+          "line": 15,
+          "column": 0
+        },
+        "end": {
+          "line": 19,
+          "column": 1
+        }
+      },
+      "leadingComments": [
+        {
+          "type": "Block",
+          "value": "*\r\n * Write the contents of a file.\r\n * @param {object | string} input The file name to write.\r\n * @param {string | Buffer} content Data to write.\r\n * @param {string} options Options (not required) that are passed to the writeFile function.\r\n * @return {Observable<object>} An observable containing the file name object.\r\n ",
+          "range": [
+            194,
+            521
+          ],
+          "loc": {
+            "start": {
+              "line": 8,
+              "column": 0
+            },
+            "end": {
+              "line": 14,
+              "column": 3
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "sourceType": "module",
+  "range": [
+    2,
+    733
+  ],
+  "loc": {
+    "start": {
+      "line": 2,
+      "column": 0
+    },
+    "end": {
+      "line": 19,
+      "column": 1
+    }
+  },
+  "comments": [
+    {
+      "type": "Block",
+      "value": "*\r\n * Write the contents of a file.\r\n * @param {object | string} input The file name to write.\r\n * @param {string | Buffer} content Data to write.\r\n * @param {string} options Options (not required) that are passed to the writeFile function.\r\n * @return {Observable<object>} An observable containing the file name object.\r\n ",
+      "range": [
+        194,
+        521
+      ],
+      "loc": {
+        "start": {
+          "line": 8,
+          "column": 0
+        },
+        "end": {
+          "line": 14,
+          "column": 3
+        }
+      }
+    }
+  ]
+}

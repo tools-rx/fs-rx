@@ -1,0 +1,1460 @@
+[
+  {
+    "__docId__": 0,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/index.js",
+    "memberof": null,
+    "longname": "src/index.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 8,
+    "content": "\r\n/**\r\n * @typedef Observable\r\n * @type {object}\r\n * @desc An RxJS observable.\r\n */\r\n\r\nexport {normalizeInput, fileNameOf} from './normalize-input'\r\nexport {writeFileRx} from './write-file'\r\nexport {readFileRx} from './read-file'\r\n"
+  },
+  {
+    "__docId__": 1,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/mkdirp-path.js",
+    "memberof": null,
+    "longname": "src/mkdirp-path.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 2,
+    "content": "\r\nimport mkdirp from 'mkdirp'\r\nimport {Observable} from 'rxjs'\r\n\r\nconst mkdirpBound = Observable.bindNodeCallback(mkdirp)\r\n\r\n/**\r\n * Make directories, including all that don't exist.\r\n * @param {string} input The directory to create, including any intermediate directories.\r\n * @param {string} options Options (not required) that are passed to the mkdirp function.\r\n * @return {Observable<object>} An observable containing an empty object.\r\n */\r\nexport function mkdirpRx (input, options) {\r\n  return mkdirpBound(input, options || {})\r\n    .map(() => ({}))\r\n}\r\n"
+  },
+  {
+    "__docId__": 2,
+    "kind": "variable",
+    "static": true,
+    "variation": null,
+    "name": "mkdirpBound",
+    "memberof": "src/mkdirp-path.js",
+    "longname": "src/mkdirp-path.js~mkdirpBound",
+    "access": null,
+    "export": false,
+    "importPath": "fs-rx/src/mkdirp-path.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 5,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 3,
+    "kind": "function",
+    "static": true,
+    "variation": null,
+    "name": "mkdirpRx",
+    "memberof": "src/mkdirp-path.js",
+    "longname": "src/mkdirp-path.js~mkdirpRx",
+    "access": null,
+    "export": true,
+    "importPath": "fs-rx/src/mkdirp-path.js",
+    "importStyle": "{mkdirpRx}",
+    "description": "Make directories, including all that don't exist.",
+    "lineNumber": 13,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "input",
+        "description": "The directory to create, including any intermediate directories."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options",
+        "description": "Options (not required) that are passed to the mkdirp function."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Observable<object>"
+      ],
+      "spread": false,
+      "description": "An observable containing an empty object."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 4,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/normalize-input.js",
+    "memberof": null,
+    "longname": "src/normalize-input.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 2,
+    "content": "\r\nimport {join, isAbsolute} from 'path'\r\n\r\n/**\r\n * Normalize an input file name\r\n * @param {string | object} input Either a file name (relative to the current working directory)\r\n *    or an object with a basedir and name property (like what is returned from the globRx function).\r\n * @return {object} A normalized object with a name and basedir property.\r\n */\r\nexport function normalizeInput (input) {\r\n  if (typeof input === 'string') {\r\n    return {\r\n      name: input,\r\n      basedir: process.cwd()\r\n    }\r\n  } else if (typeof input === 'object') {\r\n    if (input.name && input.basedir) {\r\n      return input\r\n    } else if (input.name) {\r\n      return Object.assign(input, {\r\n        basedir: process.cwd()\r\n      })\r\n    }\r\n  }\r\n\r\n  throw new Error('Could not identify file name from input.')\r\n}\r\n\r\n/**\r\n * From a normalized input file name, return the file name string.\r\n * @param {object} input A normalized file name with a basedir and name property.\r\n * @return {string} The file name.\r\n */\r\n\r\nexport function fileNameOf (input) {\r\n  return isAbsolute(input.name) ? input.name : join(input.basedir, input.name)\r\n}\r\n"
+  },
+  {
+    "__docId__": 5,
+    "kind": "function",
+    "static": true,
+    "variation": null,
+    "name": "normalizeInput",
+    "memberof": "src/normalize-input.js",
+    "longname": "src/normalize-input.js~normalizeInput",
+    "access": null,
+    "export": true,
+    "importPath": "fs-rx/src/normalize-input.js",
+    "importStyle": "{normalizeInput}",
+    "description": "Normalize an input file name",
+    "lineNumber": 10,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string ",
+          " object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "input",
+        "description": "Either a file name (relative to the current working directory)\n   or an object with a basedir and name property (like what is returned from the globRx function)."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "object"
+      ],
+      "spread": false,
+      "description": "A normalized object with a name and basedir property."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 6,
+    "kind": "function",
+    "static": true,
+    "variation": null,
+    "name": "fileNameOf",
+    "memberof": "src/normalize-input.js",
+    "longname": "src/normalize-input.js~fileNameOf",
+    "access": null,
+    "export": true,
+    "importPath": "fs-rx/src/normalize-input.js",
+    "importStyle": "{fileNameOf}",
+    "description": "From a normalized input file name, return the file name string.",
+    "lineNumber": 35,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "input",
+        "description": "A normalized file name with a basedir and name property."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": "The file name."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 7,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/read-file.js",
+    "memberof": null,
+    "longname": "src/read-file.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 2,
+    "content": "\r\nimport {readFile} from 'fs'\r\nimport {Observable} from 'rxjs'\r\nimport {normalizeInput, fileNameOf} from './normalize-input'\r\n\r\nconst readFileBound = Observable.bindNodeCallback(readFile)\r\n\r\n/**\r\n * Read the contents of a file.\r\n * @param {object | string} input The file name to read.\r\n * @param {string} options Options (not required) that are passed to the readFile function.\r\n * @return {Observable<object>} An observable containing the file name object that includes either a\r\n *    content property (for string contents) or a buffer property (if the file is read as\r\n *    as Node Buffer object).\r\n */\r\nexport function readFileRx (input, options) {\r\n  let normalizedInput = normalizeInput(input)\r\n  return readFileBound(fileNameOf(normalizedInput), options)\r\n    .map((content) => {\r\n      return (\r\n        Buffer.isBuffer(content)\r\n          ? Object.assign(normalizedInput, { buffer: content })\r\n          : Object.assign(normalizedInput, { content })\r\n      )\r\n    })\r\n}\r\n"
+  },
+  {
+    "__docId__": 8,
+    "kind": "variable",
+    "static": true,
+    "variation": null,
+    "name": "readFileBound",
+    "memberof": "src/read-file.js",
+    "longname": "src/read-file.js~readFileBound",
+    "access": null,
+    "export": false,
+    "importPath": "fs-rx/src/read-file.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 9,
+    "kind": "function",
+    "static": true,
+    "variation": null,
+    "name": "readFileRx",
+    "memberof": "src/read-file.js",
+    "longname": "src/read-file.js~readFileRx",
+    "access": null,
+    "export": true,
+    "importPath": "fs-rx/src/read-file.js",
+    "importStyle": "{readFileRx}",
+    "description": "Read the contents of a file.",
+    "lineNumber": 16,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "object ",
+          " string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "input",
+        "description": "The file name to read."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options",
+        "description": "Options (not required) that are passed to the readFile function."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Observable<object>"
+      ],
+      "spread": false,
+      "description": "An observable containing the file name object that includes either a\n   content property (for string contents) or a buffer property (if the file is read as\n   as Node Buffer object)."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 10,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/rename-file.js",
+    "memberof": null,
+    "longname": "src/rename-file.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 2,
+    "content": "\r\nimport {relative} from 'path'\r\nimport {rename} from 'fs'\r\nimport {Observable} from 'rxjs'\r\nimport {normalizeInput, fileNameOf} from './normalize-input'\r\n\r\nconst renameBound = Observable.bindNodeCallback(rename)\r\n\r\n/**\r\n * Rename or move a file or directory.\r\n * @param {object | string} input The file or directory name to rename.\r\n * @param {string} newPath The path to rename to.\r\n * @return {Observable<object>} An observable containing the file name object, where the name\r\n *    is derived from the newPath relative to the basedir.\r\n */\r\nexport function renameRx (input, newPath) {\r\n  let normalizedInput = normalizeInput(input)\r\n  return renameBound(fileNameOf(normalizedInput), newPath)\r\n    .map(() => Object.assign(normalizedInput, {\r\n      name: unixStylePath(relative(normalizedInput.basedir, newPath))\r\n    }))\r\n}\r\n\r\nfunction unixStylePath (path) {\r\n  return path.replace(/\\\\/g, '/')\r\n}\r\n"
+  },
+  {
+    "__docId__": 11,
+    "kind": "variable",
+    "static": true,
+    "variation": null,
+    "name": "renameBound",
+    "memberof": "src/rename-file.js",
+    "longname": "src/rename-file.js~renameBound",
+    "access": null,
+    "export": false,
+    "importPath": "fs-rx/src/rename-file.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 7,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 12,
+    "kind": "function",
+    "static": true,
+    "variation": null,
+    "name": "renameRx",
+    "memberof": "src/rename-file.js",
+    "longname": "src/rename-file.js~renameRx",
+    "access": null,
+    "export": true,
+    "importPath": "fs-rx/src/rename-file.js",
+    "importStyle": "{renameRx}",
+    "description": "Rename or move a file or directory.",
+    "lineNumber": 16,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "object ",
+          " string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "input",
+        "description": "The file or directory name to rename."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "newPath",
+        "description": "The path to rename to."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Observable<object>"
+      ],
+      "spread": false,
+      "description": "An observable containing the file name object, where the name\n   is derived from the newPath relative to the basedir."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 13,
+    "kind": "function",
+    "static": true,
+    "variation": null,
+    "name": "unixStylePath",
+    "memberof": "src/rename-file.js",
+    "longname": "src/rename-file.js~unixStylePath",
+    "access": null,
+    "export": false,
+    "importPath": "fs-rx/src/rename-file.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 24,
+    "undocument": true,
+    "params": [
+      {
+        "name": "path",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 14,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/rimraf-path.js",
+    "memberof": null,
+    "longname": "src/rimraf-path.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 2,
+    "content": "\r\nimport rimraf from 'rimraf'\r\nimport {Observable} from 'rxjs'\r\n\r\nconst rimrafBound = Observable.bindNodeCallback(rimraf)\r\n\r\n/**\r\n * Use rimraf to delete all files and directories.\r\n * @param {string} input The file or directory name to delete.\r\n * @param {object} options Options (not required) that are passed to the rimraf function.\r\n * @return {Observable<object>} An observable containing an empty object.\r\n */\r\nexport function rimrafRx (input, options) {\r\n  return rimrafBound(input, options || {})\r\n    .map(() => ({}))\r\n}\r\n"
+  },
+  {
+    "__docId__": 15,
+    "kind": "variable",
+    "static": true,
+    "variation": null,
+    "name": "rimrafBound",
+    "memberof": "src/rimraf-path.js",
+    "longname": "src/rimraf-path.js~rimrafBound",
+    "access": null,
+    "export": false,
+    "importPath": "fs-rx/src/rimraf-path.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 5,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 16,
+    "kind": "function",
+    "static": true,
+    "variation": null,
+    "name": "rimrafRx",
+    "memberof": "src/rimraf-path.js",
+    "longname": "src/rimraf-path.js~rimrafRx",
+    "access": null,
+    "export": true,
+    "importPath": "fs-rx/src/rimraf-path.js",
+    "importStyle": "{rimrafRx}",
+    "description": "Use rimraf to delete all files and directories.",
+    "lineNumber": 13,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "input",
+        "description": "The file or directory name to delete."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options",
+        "description": "Options (not required) that are passed to the rimraf function."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Observable<object>"
+      ],
+      "spread": false,
+      "description": "An observable containing an empty object."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 17,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/stat-file.js",
+    "memberof": null,
+    "longname": "src/stat-file.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 2,
+    "content": "\r\nimport {stat, lstat} from 'fs'\r\nimport {Observable} from 'rxjs'\r\nimport {normalizeInput, fileNameOf} from './normalize-input'\r\n\r\nconst statBound = Observable.bindNodeCallback(stat)\r\nconst lstatBound = Observable.bindNodeCallback(lstat)\r\n\r\n/**\r\n * Get stats for a file.\r\n * @param {object | string} input The file name to obtain stats for.\r\n * @return {Observable<object>} An observable containing the file name object that includes\r\n *    a stats property with the stats obtained.\r\n */\r\nexport function statRx (input) {\r\n  let normalizedInput = normalizeInput(input)\r\n  return statBound(fileNameOf(normalizedInput))\r\n    .map((stats) => {\r\n      return Object.assign(normalizedInput, { stats })\r\n    })\r\n}\r\n\r\n/**\r\n * Get stats for a file (including symbolic links)\r\n * @param {object | string} input The file name to obtain stats for.\r\n * @return {Observable<object>} An observable containing the file name object that includes\r\n *    a stats property with the stats obtained.  The stats will be for the symbolic link\r\n *    (using lstat) if applicable.\r\n */\r\nexport function lstatRx (input) {\r\n  let normalizedInput = normalizeInput(input)\r\n  return lstatBound(fileNameOf(normalizedInput))\r\n    .map((stats) => {\r\n      return Object.assign(normalizedInput, { stats })\r\n    })\r\n}\r\n"
+  },
+  {
+    "__docId__": 18,
+    "kind": "variable",
+    "static": true,
+    "variation": null,
+    "name": "statBound",
+    "memberof": "src/stat-file.js",
+    "longname": "src/stat-file.js~statBound",
+    "access": null,
+    "export": false,
+    "importPath": "fs-rx/src/stat-file.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 19,
+    "kind": "variable",
+    "static": true,
+    "variation": null,
+    "name": "lstatBound",
+    "memberof": "src/stat-file.js",
+    "longname": "src/stat-file.js~lstatBound",
+    "access": null,
+    "export": false,
+    "importPath": "fs-rx/src/stat-file.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 7,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 20,
+    "kind": "function",
+    "static": true,
+    "variation": null,
+    "name": "statRx",
+    "memberof": "src/stat-file.js",
+    "longname": "src/stat-file.js~statRx",
+    "access": null,
+    "export": true,
+    "importPath": "fs-rx/src/stat-file.js",
+    "importStyle": "{statRx}",
+    "description": "Get stats for a file.",
+    "lineNumber": 15,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "object ",
+          " string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "input",
+        "description": "The file name to obtain stats for."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Observable<object>"
+      ],
+      "spread": false,
+      "description": "An observable containing the file name object that includes\n   a stats property with the stats obtained."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 21,
+    "kind": "function",
+    "static": true,
+    "variation": null,
+    "name": "lstatRx",
+    "memberof": "src/stat-file.js",
+    "longname": "src/stat-file.js~lstatRx",
+    "access": null,
+    "export": true,
+    "importPath": "fs-rx/src/stat-file.js",
+    "importStyle": "{lstatRx}",
+    "description": "Get stats for a file (including symbolic links)",
+    "lineNumber": 30,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "object ",
+          " string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "input",
+        "description": "The file name to obtain stats for."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Observable<object>"
+      ],
+      "spread": false,
+      "description": "An observable containing the file name object that includes\n   a stats property with the stats obtained.  The stats will be for the symbolic link\n   (using lstat) if applicable."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 22,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/unlink-file.js",
+    "memberof": null,
+    "longname": "src/unlink-file.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 2,
+    "content": "\r\nimport {unlink} from 'fs'\r\nimport {Observable} from 'rxjs'\r\nimport {normalizeInput, fileNameOf} from './normalize-input'\r\n\r\nconst unlinkBound = Observable.bindNodeCallback(unlink)\r\n\r\n/**\r\n * Delete a file.\r\n * @param {object | string} input The file name to delete.\r\n * @return {Observable<object>} An observable containing the file information object.\r\n */\r\nexport function unlinkRx (input) {\r\n  let normalizedInput = normalizeInput(input)\r\n  return unlinkBound(fileNameOf(normalizedInput))\r\n    .map((content) => normalizedInput)\r\n}\r\n"
+  },
+  {
+    "__docId__": 23,
+    "kind": "variable",
+    "static": true,
+    "variation": null,
+    "name": "unlinkBound",
+    "memberof": "src/unlink-file.js",
+    "longname": "src/unlink-file.js~unlinkBound",
+    "access": null,
+    "export": false,
+    "importPath": "fs-rx/src/unlink-file.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 24,
+    "kind": "function",
+    "static": true,
+    "variation": null,
+    "name": "unlinkRx",
+    "memberof": "src/unlink-file.js",
+    "longname": "src/unlink-file.js~unlinkRx",
+    "access": null,
+    "export": true,
+    "importPath": "fs-rx/src/unlink-file.js",
+    "importStyle": "{unlinkRx}",
+    "description": "Delete a file.",
+    "lineNumber": 13,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "object ",
+          " string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "input",
+        "description": "The file name to delete."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Observable<object>"
+      ],
+      "spread": false,
+      "description": "An observable containing the file information object."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 25,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/write-file.js",
+    "memberof": null,
+    "longname": "src/write-file.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 2,
+    "content": "\r\nimport {writeFile} from 'fs'\r\nimport {Observable} from 'rxjs'\r\nimport {normalizeInput, fileNameOf} from './normalize-input'\r\n\r\nconst writeFileBound = Observable.bindNodeCallback(writeFile)\r\n\r\n/**\r\n * Write the contents of a file.\r\n * @param {object | string} input The file name to write.\r\n * @param {string | Buffer} content Data to write.\r\n * @param {string} options Options (not required) that are passed to the writeFile function.\r\n * @return {Observable<object>} An observable containing the file name object.\r\n */\r\nexport function writeFileRx (input, content, options) {\r\n  let normalizedInput = normalizeInput(input)\r\n  return writeFileBound(fileNameOf(normalizedInput), content, options)\r\n    .map(() => normalizedInput)\r\n}\r\n"
+  },
+  {
+    "__docId__": 26,
+    "kind": "variable",
+    "static": true,
+    "variation": null,
+    "name": "writeFileBound",
+    "memberof": "src/write-file.js",
+    "longname": "src/write-file.js~writeFileBound",
+    "access": null,
+    "export": false,
+    "importPath": "fs-rx/src/write-file.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 27,
+    "kind": "function",
+    "static": true,
+    "variation": null,
+    "name": "writeFileRx",
+    "memberof": "src/write-file.js",
+    "longname": "src/write-file.js~writeFileRx",
+    "access": null,
+    "export": true,
+    "importPath": "fs-rx/src/write-file.js",
+    "importStyle": "{writeFileRx}",
+    "description": "Write the contents of a file.",
+    "lineNumber": 15,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "object ",
+          " string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "input",
+        "description": "The file name to write."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string ",
+          " Buffer"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "content",
+        "description": "Data to write."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "options",
+        "description": "Options (not required) that are passed to the writeFile function."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Observable<object>"
+      ],
+      "spread": false,
+      "description": "An observable containing the file name object."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 29,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Infinity",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Infinity",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 30,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "NaN",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~NaN",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 31,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "undefined",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~undefined",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 32,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "null",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~null",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 33,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Object",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 34,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~object",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 35,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Function",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 36,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~function",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 37,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Boolean",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 38,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~boolean",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 39,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Symbol",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Symbol",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 40,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Error",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Error",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 41,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "EvalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~EvalError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 42,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "InternalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/InternalError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~InternalError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 43,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "RangeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~RangeError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 44,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "ReferenceError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~ReferenceError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 45,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "SyntaxError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~SyntaxError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 46,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "TypeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~TypeError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 47,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "URIError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~URIError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 48,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Number",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 49,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~number",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 50,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Date",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Date",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 51,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "String",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~String",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 52,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "string",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~string",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 53,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "RegExp",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~RegExp",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 54,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 55,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Int8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Int8Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 56,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Uint8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint8Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 57,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Uint8ClampedArray",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint8ClampedArray",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 58,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Int16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Int16Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 59,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Uint16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint16Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 60,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Int32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Int32Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 61,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Uint32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint32Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 62,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Float32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Float32Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 63,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Float64Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Float64Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 64,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Map",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Map",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 65,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Set",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Set",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 66,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "WeakMap",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~WeakMap",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 67,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "WeakSet",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~WeakSet",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 68,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "ArrayBuffer",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~ArrayBuffer",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 69,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "DataView",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~DataView",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 70,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "JSON",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~JSON",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 71,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Promise",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Promise",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 72,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Generator",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Generator",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 73,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "GeneratorFunction",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~GeneratorFunction",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 74,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Reflect",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Reflect",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 75,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Proxy",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Proxy",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 77,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "CanvasRenderingContext2D",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~CanvasRenderingContext2D",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 78,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "DocumentFragment",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~DocumentFragment",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 79,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Element",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Element",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~Element",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 80,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Event",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Event",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~Event",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 81,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Node",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Node",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~Node",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 82,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "NodeList",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/NodeList",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~NodeList",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 83,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "XMLHttpRequest",
+    "externalLink": "https://developer.mozilla.org/en/docs/Web/API/XMLHttpRequest",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~XMLHttpRequest",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 84,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "AudioContext",
+    "externalLink": "https://developer.mozilla.org/en/docs/Web/API/AudioContext",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~AudioContext",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  }
+]
