@@ -13,8 +13,11 @@ install:
   - npm install
 
 test_script:
+  # Need Bash 4.3 - globs don't follow symlinks
+  - bash --version
   - node --version
   - npm --version
+  # run tests
   - npm test
 
 build: off
