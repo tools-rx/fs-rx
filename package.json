@@ -26,6 +26,8 @@
     "url": "https://github.com/tools-rx/fs-rx.git"
   },
   "dependencies": {
+    "mkdirp": "^0.5.1",
+    "rimraf": "^2.5.4",
     "rxjs": "^5.0.0-beta.11"
   },
   "devDependencies": {
