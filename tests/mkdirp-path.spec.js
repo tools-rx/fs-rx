@@ -1,16 +1,14 @@
 /* eslint-env jasmine */
 
 import {join} from 'path'
-import {rimrafRx} from '../src/rimraf-path'
+import {mkdirpRx} from '../src/mkdirp-path'
 import {buildFileSet, bashFileSearch} from 'test-files-rx'
-import {getSubscriber} from './test-helpers'
+import {getSubscriber, sortedFileList} from './test-helpers'
 
 export const fileSet = {
   localFiles: [
     'tmp.txt',
-    'a/1/one.txt',
-    'a/2/two.txt',
-    'a/3/three.txt'
+    'a/one.txt'
   ],
   rootPath: '/tmp/fs-test',
   localPath: join(__dirname, '..', 'fs-test')
@@ -20,25 +18,29 @@ function localFileName (name) {
   return join(fileSet.localPath, name)
 }
 
-describe('rimrafRx', () => {
+describe('mkdirpfRx', () => {
   beforeEach((done) => {
     buildFileSet(fileSet).subscribe(getSubscriber(done))
   })
 
-  it('should delete all files in the path', (done) => {
-    rimrafRx(localFileName('**/*'))
+  it('should create directories', (done) => {
+    mkdirpRx(localFileName('a/b/c/d'))
       .mergeMap(() => bashFileSearch('**/*', fileSet.localPath))
-      .do((fileList) => {
-        expect(fileList).toEqual({
-          pattern: '**/*',
-          matches: []
-        })
+      .do((result) => {
+        expect(sortedFileList(result.matches)).toEqual(sortedFileList([
+          'tmp.txt',
+          'a',
+          'a/one.txt',
+          'a/b',
+          'a/b/c',
+          'a/b/c/d'
+        ]))
       })
       .subscribe(getSubscriber(done))
   })
 
   it('should return an empty object', (done) => {
-    rimrafRx(localFileName('**/*'))
+    mkdirpRx(localFileName('a/b/c/d'))
       .do((result) => {
         expect(typeof result).toEqual('object')
         expect(result).toEqual({})
