@@ -1,6 +1,6 @@
 {
   "name": "fs-rx",
-  "version": "1.0.0-beta.3",
+  "version": "1.0.0-beta.4",
   "description": "Observable wrappers around NodeJS file system functions.",
   "main": "dist/index.js",
   "jsnext:main": "src/index.js",
