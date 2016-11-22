@@ -461,7 +461,7 @@
     "access": null,
     "description": null,
     "lineNumber": 2,
-    "content": "\r\nimport {stat, lstat} from 'fs'\r\nimport {Observable} from 'rxjs'\r\nimport {normalizeInput, fileNameOf} from './normalize-input'\r\n\r\nconst statBound = Observable.bindNodeCallback(stat)\r\nconst lstatBound = Observable.bindNodeCallback(lstat)\r\n\r\n/**\r\n * Get stats for a file.\r\n * @param {object | string} input The file name to obtain stats for.\r\n * @return {Observable<object>} An observable containing the file name object that includes\r\n *    a stats property with the stats obtained.\r\n */\r\nexport function statRx (input) {\r\n  let normalizedInput = normalizeInput(input)\r\n  return statBound(fileNameOf(normalizedInput))\r\n    .map((stats) => {\r\n      return Object.assign(normalizedInput, { stats })\r\n    })\r\n}\r\n\r\n/**\r\n * Get stats for a file (including symbolic links)\r\n * @param {object | string} input The file name to obtain stats for.\r\n * @return {Observable<object>} An observable containing the file name object that includes\r\n *    a stats property with the stats obtained.  The stats will be for the symbolic link\r\n *    (using lstat) if applicable.\r\n */\r\nexport function lstatRx (input) {\r\n  let normalizedInput = normalizeInput(input)\r\n  return lstatBound(fileNameOf(normalizedInput))\r\n    .map((stats) => {\r\n      return Object.assign(normalizedInput, { stats })\r\n    })\r\n}\r\n"
+    "content": "\r\nimport {stat, lstat} from 'fs'\r\nimport {Observable} from 'rxjs'\r\nimport {normalizeInput, fileNameOf} from './normalize-input'\r\n\r\nconst statBound = Observable.bindNodeCallback(stat)\r\nconst lstatBound = Observable.bindNodeCallback(lstat)\r\n\r\n/**\r\n * Get stats for a file.\r\n * @param {object | string} input The file name to obtain stats for.\r\n * @return {Observable<object>} An observable containing the file name object that includes\r\n *    a stats property with the stats obtained.\r\n */\r\nexport function statRx (input) {\r\n  let normalizedInput = normalizeInput(input)\r\n  return statBound(fileNameOf(normalizedInput))\r\n    .map((stats) => {\r\n      return Object.assign(normalizedInput, { stats })\r\n    })\r\n    .catch((err) => {\r\n      if (err.code === 'ENOENT') {\r\n        return Observable.of(Object.assign(normalizedInput, { stats: null }))\r\n      }\r\n      return Observable.throw(err)\r\n    })\r\n}\r\n\r\n/**\r\n * Get stats for a file (including symbolic links)\r\n * @param {object | string} input The file name to obtain stats for.\r\n * @return {Observable<object>} An observable containing the file name object that includes\r\n *    a stats property with the stats obtained.  The stats will be for the symbolic link\r\n *    (using lstat) if applicable.\r\n */\r\nexport function lstatRx (input) {\r\n  let normalizedInput = normalizeInput(input)\r\n  return lstatBound(fileNameOf(normalizedInput))\r\n    .map((stats) => {\r\n      return Object.assign(normalizedInput, { stats })\r\n    })\r\n    .catch((err) => {\r\n      if (err.code === 'ENOENT') {\r\n        return Observable.of(Object.assign(normalizedInput, { stats: null }))\r\n      }\r\n      return Observable.throw(err)\r\n    })\r\n}\r\n"
   },
   {
     "__docId__": 18,
@@ -555,7 +555,7 @@
     "importPath": "fs-rx/src/stat-file.js",
     "importStyle": "{lstatRx}",
     "description": "Get stats for a file (including symbolic links)",
-    "lineNumber": 30,
+    "lineNumber": 36,
     "params": [
       {
         "nullable": null,
