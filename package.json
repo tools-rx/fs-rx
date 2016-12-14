@@ -1,6 +1,6 @@
 {
   "name": "fs-rx",
-  "version": "0.0.0-semantically-released",
+  "version": "0.0.0-development",
   "description": "Observable wrappers around NodeJS file system functions.",
   "main": "dist/index.js",
   "jsnext:main": "src/index.js",
@@ -10,7 +10,8 @@
     "build:ts": "babel --out-dir dist src",
     "build:docs": "esdoc -c esdoc.json",
     "lint": "standard",
-    "clean": "rimraf dist"
+    "clean": "rimraf dist",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "keywords": [
     "fs",
@@ -48,11 +49,23 @@
     "mkdirp": "^0.5.1",
     "npm-run-all": "^3.1.2",
     "standard": "^8.6.0",
-    "test-files-rx": "^1.0.0"
+    "test-files-rx": "^1.0.0",
+    "semantic-release": "^6.3.2"
   },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "release": {
+    "verifyConditions": [
+      {
+        "path": "@semantic-release/condition-travis"
+      },
+      {
+        "path": "./scripts/publish-condition.js",
+        "node": "^6"
+      }
+    ]
   }
 }
