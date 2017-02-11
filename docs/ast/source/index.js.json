@@ -1,364 +1,10 @@
 {
-  "type": "Program",
-  "body": [
-    {
-      "type": "ExportNamedDeclaration",
-      "declaration": null,
-      "specifiers": [
-        {
-          "type": "ExportSpecifier",
-          "exported": {
-            "type": "Identifier",
-            "name": "normalizeInput",
-            "range": [
-              95,
-              109
-            ],
-            "loc": {
-              "start": {
-                "line": 8,
-                "column": 8
-              },
-              "end": {
-                "line": 8,
-                "column": 22
-              }
-            }
-          },
-          "local": {
-            "type": "Identifier",
-            "name": "normalizeInput",
-            "range": [
-              95,
-              109
-            ],
-            "loc": {
-              "start": {
-                "line": 8,
-                "column": 8
-              },
-              "end": {
-                "line": 8,
-                "column": 22
-              }
-            }
-          },
-          "range": [
-            95,
-            109
-          ],
-          "loc": {
-            "start": {
-              "line": 8,
-              "column": 8
-            },
-            "end": {
-              "line": 8,
-              "column": 22
-            }
-          }
-        },
-        {
-          "type": "ExportSpecifier",
-          "exported": {
-            "type": "Identifier",
-            "name": "fileNameOf",
-            "range": [
-              111,
-              121
-            ],
-            "loc": {
-              "start": {
-                "line": 8,
-                "column": 24
-              },
-              "end": {
-                "line": 8,
-                "column": 34
-              }
-            }
-          },
-          "local": {
-            "type": "Identifier",
-            "name": "fileNameOf",
-            "range": [
-              111,
-              121
-            ],
-            "loc": {
-              "start": {
-                "line": 8,
-                "column": 24
-              },
-              "end": {
-                "line": 8,
-                "column": 34
-              }
-            }
-          },
-          "range": [
-            111,
-            121
-          ],
-          "loc": {
-            "start": {
-              "line": 8,
-              "column": 24
-            },
-            "end": {
-              "line": 8,
-              "column": 34
-            }
-          }
-        }
-      ],
-      "source": {
-        "type": "Literal",
-        "value": "./normalize-input",
-        "raw": "'./normalize-input'",
-        "range": [
-          128,
-          147
-        ],
-        "loc": {
-          "start": {
-            "line": 8,
-            "column": 41
-          },
-          "end": {
-            "line": 8,
-            "column": 60
-          }
-        }
-      },
-      "range": [
-        87,
-        149
-      ],
-      "loc": {
-        "start": {
-          "line": 8,
-          "column": 0
-        },
-        "end": {
-          "line": 9,
-          "column": 0
-        }
-      },
-      "leadingComments": [
-        {
-          "type": "Block",
-          "value": "*\r\n * @typedef Observable\r\n * @type {object}\r\n * @desc An RxJS observable.\r\n ",
-          "range": [
-            2,
-            83
-          ],
-          "loc": {
-            "start": {
-              "line": 2,
-              "column": 0
-            },
-            "end": {
-              "line": 6,
-              "column": 3
-            }
-          }
-        }
-      ]
-    },
-    {
-      "type": "ExportNamedDeclaration",
-      "declaration": null,
-      "specifiers": [
-        {
-          "type": "ExportSpecifier",
-          "exported": {
-            "type": "Identifier",
-            "name": "writeFileRx",
-            "range": [
-              157,
-              168
-            ],
-            "loc": {
-              "start": {
-                "line": 9,
-                "column": 8
-              },
-              "end": {
-                "line": 9,
-                "column": 19
-              }
-            }
-          },
-          "local": {
-            "type": "Identifier",
-            "name": "writeFileRx",
-            "range": [
-              157,
-              168
-            ],
-            "loc": {
-              "start": {
-                "line": 9,
-                "column": 8
-              },
-              "end": {
-                "line": 9,
-                "column": 19
-              }
-            }
-          },
-          "range": [
-            157,
-            168
-          ],
-          "loc": {
-            "start": {
-              "line": 9,
-              "column": 8
-            },
-            "end": {
-              "line": 9,
-              "column": 19
-            }
-          }
-        }
-      ],
-      "source": {
-        "type": "Literal",
-        "value": "./write-file",
-        "raw": "'./write-file'",
-        "range": [
-          175,
-          189
-        ],
-        "loc": {
-          "start": {
-            "line": 9,
-            "column": 26
-          },
-          "end": {
-            "line": 9,
-            "column": 40
-          }
-        }
-      },
-      "range": [
-        149,
-        191
-      ],
-      "loc": {
-        "start": {
-          "line": 9,
-          "column": 0
-        },
-        "end": {
-          "line": 10,
-          "column": 0
-        }
-      }
-    },
-    {
-      "type": "ExportNamedDeclaration",
-      "declaration": null,
-      "specifiers": [
-        {
-          "type": "ExportSpecifier",
-          "exported": {
-            "type": "Identifier",
-            "name": "readFileRx",
-            "range": [
-              199,
-              209
-            ],
-            "loc": {
-              "start": {
-                "line": 10,
-                "column": 8
-              },
-              "end": {
-                "line": 10,
-                "column": 18
-              }
-            }
-          },
-          "local": {
-            "type": "Identifier",
-            "name": "readFileRx",
-            "range": [
-              199,
-              209
-            ],
-            "loc": {
-              "start": {
-                "line": 10,
-                "column": 8
-              },
-              "end": {
-                "line": 10,
-                "column": 18
-              }
-            }
-          },
-          "range": [
-            199,
-            209
-          ],
-          "loc": {
-            "start": {
-              "line": 10,
-              "column": 8
-            },
-            "end": {
-              "line": 10,
-              "column": 18
-            }
-          }
-        }
-      ],
-      "source": {
-        "type": "Literal",
-        "value": "./read-file",
-        "raw": "'./read-file'",
-        "range": [
-          216,
-          229
-        ],
-        "loc": {
-          "start": {
-            "line": 10,
-            "column": 25
-          },
-          "end": {
-            "line": 10,
-            "column": 38
-          }
-        }
-      },
-      "range": [
-        191,
-        231
-      ],
-      "loc": {
-        "start": {
-          "line": 10,
-          "column": 0
-        },
-        "end": {
-          "line": 11,
-          "column": 0
-        }
-      }
-    }
-  ],
-  "sourceType": "module",
-  "range": [
-    87,
-    231
-  ],
+  "type": "File",
+  "start": 0,
+  "end": 231,
   "loc": {
     "start": {
-      "line": 8,
+      "line": 1,
       "column": 0
     },
     "end": {
@@ -366,14 +12,361 @@
       "column": 0
     }
   },
+  "program": {
+    "type": "Program",
+    "start": 0,
+    "end": 231,
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 0
+      },
+      "end": {
+        "line": 11,
+        "column": 0
+      }
+    },
+    "sourceType": "module",
+    "body": [
+      {
+        "type": "ExportNamedDeclaration",
+        "start": 87,
+        "end": 147,
+        "loc": {
+          "start": {
+            "line": 8,
+            "column": 0
+          },
+          "end": {
+            "line": 8,
+            "column": 60
+          }
+        },
+        "declaration": null,
+        "specifiers": [
+          {
+            "type": "ExportSpecifier",
+            "start": 95,
+            "end": 109,
+            "loc": {
+              "start": {
+                "line": 8,
+                "column": 8
+              },
+              "end": {
+                "line": 8,
+                "column": 22
+              }
+            },
+            "local": {
+              "type": "Identifier",
+              "start": 95,
+              "end": 109,
+              "loc": {
+                "start": {
+                  "line": 8,
+                  "column": 8
+                },
+                "end": {
+                  "line": 8,
+                  "column": 22
+                },
+                "identifierName": "normalizeInput"
+              },
+              "name": "normalizeInput",
+              "leadingComments": null
+            },
+            "exported": {
+              "type": "Identifier",
+              "start": 95,
+              "end": 109,
+              "loc": {
+                "start": {
+                  "line": 8,
+                  "column": 8
+                },
+                "end": {
+                  "line": 8,
+                  "column": 22
+                },
+                "identifierName": "normalizeInput"
+              },
+              "name": "normalizeInput"
+            },
+            "leadingComments": null
+          },
+          {
+            "type": "ExportSpecifier",
+            "start": 111,
+            "end": 121,
+            "loc": {
+              "start": {
+                "line": 8,
+                "column": 24
+              },
+              "end": {
+                "line": 8,
+                "column": 34
+              }
+            },
+            "local": {
+              "type": "Identifier",
+              "start": 111,
+              "end": 121,
+              "loc": {
+                "start": {
+                  "line": 8,
+                  "column": 24
+                },
+                "end": {
+                  "line": 8,
+                  "column": 34
+                },
+                "identifierName": "fileNameOf"
+              },
+              "name": "fileNameOf"
+            },
+            "exported": {
+              "type": "Identifier",
+              "start": 111,
+              "end": 121,
+              "loc": {
+                "start": {
+                  "line": 8,
+                  "column": 24
+                },
+                "end": {
+                  "line": 8,
+                  "column": 34
+                },
+                "identifierName": "fileNameOf"
+              },
+              "name": "fileNameOf"
+            }
+          }
+        ],
+        "source": {
+          "type": "StringLiteral",
+          "start": 128,
+          "end": 147,
+          "loc": {
+            "start": {
+              "line": 8,
+              "column": 41
+            },
+            "end": {
+              "line": 8,
+              "column": 60
+            }
+          },
+          "extra": {
+            "rawValue": "./normalize-input",
+            "raw": "'./normalize-input'"
+          },
+          "value": "./normalize-input"
+        },
+        "leadingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\r\n * @typedef Observable\r\n * @type {object}\r\n * @desc An RxJS observable.\r\n ",
+            "start": 2,
+            "end": 83,
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 0
+              },
+              "end": {
+                "line": 6,
+                "column": 3
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "ExportNamedDeclaration",
+        "start": 149,
+        "end": 189,
+        "loc": {
+          "start": {
+            "line": 9,
+            "column": 0
+          },
+          "end": {
+            "line": 9,
+            "column": 40
+          }
+        },
+        "declaration": null,
+        "specifiers": [
+          {
+            "type": "ExportSpecifier",
+            "start": 157,
+            "end": 168,
+            "loc": {
+              "start": {
+                "line": 9,
+                "column": 8
+              },
+              "end": {
+                "line": 9,
+                "column": 19
+              }
+            },
+            "local": {
+              "type": "Identifier",
+              "start": 157,
+              "end": 168,
+              "loc": {
+                "start": {
+                  "line": 9,
+                  "column": 8
+                },
+                "end": {
+                  "line": 9,
+                  "column": 19
+                },
+                "identifierName": "writeFileRx"
+              },
+              "name": "writeFileRx"
+            },
+            "exported": {
+              "type": "Identifier",
+              "start": 157,
+              "end": 168,
+              "loc": {
+                "start": {
+                  "line": 9,
+                  "column": 8
+                },
+                "end": {
+                  "line": 9,
+                  "column": 19
+                },
+                "identifierName": "writeFileRx"
+              },
+              "name": "writeFileRx"
+            }
+          }
+        ],
+        "source": {
+          "type": "StringLiteral",
+          "start": 175,
+          "end": 189,
+          "loc": {
+            "start": {
+              "line": 9,
+              "column": 26
+            },
+            "end": {
+              "line": 9,
+              "column": 40
+            }
+          },
+          "extra": {
+            "rawValue": "./write-file",
+            "raw": "'./write-file'"
+          },
+          "value": "./write-file"
+        }
+      },
+      {
+        "type": "ExportNamedDeclaration",
+        "start": 191,
+        "end": 229,
+        "loc": {
+          "start": {
+            "line": 10,
+            "column": 0
+          },
+          "end": {
+            "line": 10,
+            "column": 38
+          }
+        },
+        "declaration": null,
+        "specifiers": [
+          {
+            "type": "ExportSpecifier",
+            "start": 199,
+            "end": 209,
+            "loc": {
+              "start": {
+                "line": 10,
+                "column": 8
+              },
+              "end": {
+                "line": 10,
+                "column": 18
+              }
+            },
+            "local": {
+              "type": "Identifier",
+              "start": 199,
+              "end": 209,
+              "loc": {
+                "start": {
+                  "line": 10,
+                  "column": 8
+                },
+                "end": {
+                  "line": 10,
+                  "column": 18
+                },
+                "identifierName": "readFileRx"
+              },
+              "name": "readFileRx"
+            },
+            "exported": {
+              "type": "Identifier",
+              "start": 199,
+              "end": 209,
+              "loc": {
+                "start": {
+                  "line": 10,
+                  "column": 8
+                },
+                "end": {
+                  "line": 10,
+                  "column": 18
+                },
+                "identifierName": "readFileRx"
+              },
+              "name": "readFileRx"
+            }
+          }
+        ],
+        "source": {
+          "type": "StringLiteral",
+          "start": 216,
+          "end": 229,
+          "loc": {
+            "start": {
+              "line": 10,
+              "column": 25
+            },
+            "end": {
+              "line": 10,
+              "column": 38
+            }
+          },
+          "extra": {
+            "rawValue": "./read-file",
+            "raw": "'./read-file'"
+          },
+          "value": "./read-file"
+        }
+      }
+    ],
+    "directives": []
+  },
   "comments": [
     {
-      "type": "Block",
+      "type": "CommentBlock",
       "value": "*\r\n * @typedef Observable\r\n * @type {object}\r\n * @desc An RxJS observable.\r\n ",
-      "range": [
-        2,
-        83
-      ],
+      "start": 2,
+      "end": 83,
       "loc": {
         "start": {
           "line": 2,
@@ -382,6 +375,573 @@
         "end": {
           "line": 6,
           "column": 3
+        }
+      }
+    }
+  ],
+  "tokens": [
+    {
+      "type": "CommentBlock",
+      "value": "*\r\n * @typedef Observable\r\n * @type {object}\r\n * @desc An RxJS observable.\r\n ",
+      "start": 2,
+      "end": 83,
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 0
+        },
+        "end": {
+          "line": 6,
+          "column": 3
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "export",
+        "keyword": "export",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "export",
+      "start": 87,
+      "end": 93,
+      "loc": {
+        "start": {
+          "line": 8,
+          "column": 0
+        },
+        "end": {
+          "line": 8,
+          "column": 6
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "{",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 94,
+      "end": 95,
+      "loc": {
+        "start": {
+          "line": 8,
+          "column": 7
+        },
+        "end": {
+          "line": 8,
+          "column": 8
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "normalizeInput",
+      "start": 95,
+      "end": 109,
+      "loc": {
+        "start": {
+          "line": 8,
+          "column": 8
+        },
+        "end": {
+          "line": 8,
+          "column": 22
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ",",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 109,
+      "end": 110,
+      "loc": {
+        "start": {
+          "line": 8,
+          "column": 22
+        },
+        "end": {
+          "line": 8,
+          "column": 23
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "fileNameOf",
+      "start": 111,
+      "end": 121,
+      "loc": {
+        "start": {
+          "line": 8,
+          "column": 24
+        },
+        "end": {
+          "line": 8,
+          "column": 34
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "}",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 121,
+      "end": 122,
+      "loc": {
+        "start": {
+          "line": 8,
+          "column": 34
+        },
+        "end": {
+          "line": 8,
+          "column": 35
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "from",
+      "start": 123,
+      "end": 127,
+      "loc": {
+        "start": {
+          "line": 8,
+          "column": 36
+        },
+        "end": {
+          "line": 8,
+          "column": 40
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "string",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "./normalize-input",
+      "start": 128,
+      "end": 147,
+      "loc": {
+        "start": {
+          "line": 8,
+          "column": 41
+        },
+        "end": {
+          "line": 8,
+          "column": 60
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "export",
+        "keyword": "export",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "export",
+      "start": 149,
+      "end": 155,
+      "loc": {
+        "start": {
+          "line": 9,
+          "column": 0
+        },
+        "end": {
+          "line": 9,
+          "column": 6
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "{",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 156,
+      "end": 157,
+      "loc": {
+        "start": {
+          "line": 9,
+          "column": 7
+        },
+        "end": {
+          "line": 9,
+          "column": 8
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "writeFileRx",
+      "start": 157,
+      "end": 168,
+      "loc": {
+        "start": {
+          "line": 9,
+          "column": 8
+        },
+        "end": {
+          "line": 9,
+          "column": 19
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "}",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 168,
+      "end": 169,
+      "loc": {
+        "start": {
+          "line": 9,
+          "column": 19
+        },
+        "end": {
+          "line": 9,
+          "column": 20
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "from",
+      "start": 170,
+      "end": 174,
+      "loc": {
+        "start": {
+          "line": 9,
+          "column": 21
+        },
+        "end": {
+          "line": 9,
+          "column": 25
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "string",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "./write-file",
+      "start": 175,
+      "end": 189,
+      "loc": {
+        "start": {
+          "line": 9,
+          "column": 26
+        },
+        "end": {
+          "line": 9,
+          "column": 40
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "export",
+        "keyword": "export",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "export",
+      "start": 191,
+      "end": 197,
+      "loc": {
+        "start": {
+          "line": 10,
+          "column": 0
+        },
+        "end": {
+          "line": 10,
+          "column": 6
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "{",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 198,
+      "end": 199,
+      "loc": {
+        "start": {
+          "line": 10,
+          "column": 7
+        },
+        "end": {
+          "line": 10,
+          "column": 8
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "readFileRx",
+      "start": 199,
+      "end": 209,
+      "loc": {
+        "start": {
+          "line": 10,
+          "column": 8
+        },
+        "end": {
+          "line": 10,
+          "column": 18
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "}",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 209,
+      "end": 210,
+      "loc": {
+        "start": {
+          "line": 10,
+          "column": 18
+        },
+        "end": {
+          "line": 10,
+          "column": 19
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "from",
+      "start": 211,
+      "end": 215,
+      "loc": {
+        "start": {
+          "line": 10,
+          "column": 20
+        },
+        "end": {
+          "line": 10,
+          "column": 24
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "string",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "./read-file",
+      "start": 216,
+      "end": 229,
+      "loc": {
+        "start": {
+          "line": 10,
+          "column": 25
+        },
+        "end": {
+          "line": 10,
+          "column": 38
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "eof",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 231,
+      "end": 231,
+      "loc": {
+        "start": {
+          "line": 11,
+          "column": 0
+        },
+        "end": {
+          "line": 11,
+          "column": 0
         }
       }
     }
