@@ -5,6 +5,7 @@ import {statSync, lstatSync} from 'fs'
 import {statRx, lstatRx} from '../src/stat-file'
 import {buildFileSet} from 'test-files-rx'
 import {getSubscriber} from './test-helpers'
+import _omit from 'lodash/omit'
 
 export const fileSet = {
   localFiles: [
@@ -21,6 +22,9 @@ export const fileSet = {
 function localFileName (name) {
   return join(fileSet.localPath, name)
 }
+
+// AppVeyor work-around
+const getStats = (stats) => _omit(stats, ['dev'])
 
 describe('statRx', () => {
   beforeEach((done) => {
@@ -75,11 +79,13 @@ describe('statRx', () => {
     statRx(fileInfo)
       .do((info) => {
         expect(typeof info).toEqual('object')
-        expect(info).toEqual({
+        expect(_omit(info, ['stats'])).toEqual({
           basedir: fileSet.localPath,
-          name: 'tmp.txt',
-          stats: statSync(localFileName('tmp.txt'))
+          name: 'tmp.txt'
         })
+        expect(getStats(info.stats)).toEqual(
+          getStats(statSync(localFileName('tmp.txt')))
+        )
       })
       .subscribe(getSubscriber(done))
   })
@@ -138,11 +144,13 @@ describe('lstatRx', () => {
     lstatRx(fileInfo)
       .do((info) => {
         expect(typeof info).toEqual('object')
-        expect(info).toEqual({
+        expect(_omit(info, ['stats'])).toEqual({
           basedir: fileSet.localPath,
-          name: 'tmp.txt',
-          stats: lstatSync(localFileName('tmp.txt'))
+          name: 'tmp.txt'
         })
+        expect(getStats(info.stats)).toEqual(
+          getStats(lstatSync(localFileName('tmp.txt')))
+        )
       })
       .subscribe(getSubscriber(done))
   })
